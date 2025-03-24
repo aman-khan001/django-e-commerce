@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <section class="details">
+        <div class="row m-5">
+            <div class="col-md-5">
+                <img class="img-fluid object-fit-cover" src="/media/{{product.image}}" alt="">
+            </div>
+            <div class="col">
+                <h1>{{product.product_name}}</h1>
+                <p>{{product.description}}</p>
+                <p>${{product.discounted_price}} <small class="text-decoration-line-through">{{product.selling_price}}</small></p>
+                <a href="" class="btn shadow-lg  btn-primary">Add to Cart</a>
+                <a href="" class="btn-danger btn shadow-lg ">Buy Now</a>
+
+                <hr>
+                <h3>Available Offers</h3>
+                <ul>
+
+                    <li>
+                        Bank Offer5% Unlimited Cashback on Flipkart Axis Bank Credit CardT&C
+                    </li>
+                    <li>
+                        Bank Offer10% instant discount on SBI Credit Card EMI Transactions, up to ₹1,500 on orders of ₹5,000 and aboveT&C
+                    </li>
+                    <li>
+                        Bank Offer10% off up to ₹1,250 on all Axis Bank Credit Card (incl. migrated ones) EMI Txns of ₹7,499 and aboveT&C
+                    </li>
+                    <li>
+                        Special PriceGet extra 38% off (price inclusive of cashback/coupon)T&C
+                    </li>
+                    <li>
+                        No Cost EMI on Bajaj Finserv EMI Card on cart value above ₹2999T&C
+                    </li>
+                    <li>
+                        Bank Offer10% off up to ₹1,250 on Flipkart Axis Bank Credit Card EMI Txns, on orders of ₹7,499 and aboveT&C
+                    </li>
+                    <li>
+                        Bank Offer10% off up to ₹1,250 on Axis Bank Credit Card Txns of ₹5,000 and aboveT&C
+                    </li>
+                    <li>
+                        Bank Offer10% off up to ₹1,250 on IDFC FIRST Bank Credit EMI Txns on orders of ₹5,000 and aboveT&C
+                    </li>
+                    <li>
+                        Bank OfferExtra ₹500 off on Flipkart Axis Bank Credit Card EMI Txns, on orders of ₹25,000 and aboveT&C
+                    </li>
+                    <li>
+                        Bank Offer5% off up to ₹750 on IDFC FIRST Power Women Platinum and Signature Debit Cards. Min Txn Value: ₹5000T&C
+                    </li>
+                    <li>
+                        Bank OfferExtra ₹500 off on SBI Credit Card EMI Transactions, on orders of ₹25,000 and aboveT&C
+                    </li>
+                    <li>
+                    Bank OfferExtra ₹500 off on Axis Bank Credit Card (incl migrated ones) EMI Txns on orders of ₹25,000 and aboveT&C
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

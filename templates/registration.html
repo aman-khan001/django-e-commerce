@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <section class="registration m-5 p-5 container">
+        <div class=" section-heading text-center my-5">
+            <h1>Sign Up Now</h1>
+          </div>
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <form method="post">
+                    {% csrf_token %}
+                    {% for message in messages %}
+                        <p class="alert alert-success">{{message}}</p>
+                    {% endfor %}
+                    {% for fm in form %}
+                        <div class="form-group mb-3">
+                            <p>{{fm.label}}</p>
+                            {{fm}}
+                            <small class="text-danger">{{fm.errors|striptags}}</small>
+                        </div>
+                    {% endfor %}
+
+                    <input type="submit" value="Sign Up" class="btn btn-success">
+                </form>
+            </div>
+        </div>
+    </section>
+{% endblock content %}

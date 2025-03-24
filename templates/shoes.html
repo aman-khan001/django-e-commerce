@@ -1,0 +1,49 @@
+{% extends "base.html" %} {% block content %}
+<section class="shoes">
+  <div class="row container">
+    <div class="col-md-4">
+      <div class="list-group">
+        
+        <p>Brand</p>
+        <a href="{% url "shoes" 'None' %}" 
+        class="list-group-item">All</a>
+        
+        <a href="{% url "shoes" 'campus' %}" class="list-group-item">Campus</a>
+
+        <a href="{% url "shoes" 'Nike' %}" class="list-group-item">Nike</a>
+
+
+        <p>Price</p>
+        <a href="{% url "shoes" 'below' %}" class="list-group-item">Below $50</a>
+        <a href="{% url "shoes" 'above' %}" class="list-group-item">Above $50</a>
+      </div>
+    </div>
+    <div class="col">
+      {% for product in products %}
+      <div class="row my-3">
+        <div class="col-md-2">
+          <img
+            src="/media/{{product.image}}"
+            class="img-fluid object-fit-cover"
+            style="width: 6rem"
+            alt=""
+          />
+        </div>
+        <div class="col-md-8">
+          <h3>{{product.product_name}}</h3>
+          <small class="text-success">{{product.brand}}</small>
+          <p>
+            ${{product.discounted_price}}
+            <small class="text-decoration-line-through"
+              >{{product.selling_price}}</small
+            >
+          </p>
+          <a href="" class="btn shadow-lg btn-primary">Add to Cart</a>
+          <a href="" class="btn-danger btn shadow-lg">Buy Now</a>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock content %}

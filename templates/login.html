@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <section class="login">
+        <div class="row">
+            <div class="col-md-6 offset-3">        
+                <h1 class="text-center">Sign Now</h1>
+                <form method="post" novalidate>
+                    {% csrf_token %}
+                    {% if form.non_field_errors %}
+                        {% for error in form.non_field_errors %}
+                            <p class="alert text-center alert-danger">{{error}}</p>
+                        {% endfor %}
+                    {% endif %}
+                    {% for fm in form %}
+                        <div class="mb-3">{{fm.label_tag}} {{fm}}
+                            <small class="text-danger">{{fm.errors|striptags}}</small> <br>
+                        </div>
+                    {% endfor %}
+                    <input type="submit" class="btn btn-success" value="Sign In">
+                </form>
+            </div>
+        </div>
+    </section>
+
+{% endblock content %}

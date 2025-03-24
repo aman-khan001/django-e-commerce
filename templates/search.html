@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="search p-5">
+    <div class="section-heading">
+      <h1>Showing Results of: {{q}}</h1>
+    </div>
+    <div class="row w-100">
+      {% for i in data %}
+      <div class="col-md-4 my-2">
+        <a href="{% url "details" i.id %}" class="link-dark text-decoration-none">
+        <div class="card products" style="width: 18rem;">
+          <img src="/media/{{i.image}}" class="card-img-top object-fit-cover" alt="...">
+          <div class="card-body d-flex justify-content-between">
+            <h5 class="card-title">{{i.product_name}}</h5>
+            <p class="card-text">${{i.discounted_price}} <small class="text-decoration-line-through">{{ i.selling_price }}</small></p>
+          </div>
+          <div class="card-btns">
+            <a class="btn btn-light" href="">Add to Cart</a>
+            <a class="btn btn-dark" href="">Buy Now</a>
+          </div>
+        </div>
+      </a>
+      </div>
+      {% endfor %}
+    </div>
+    
+  </section>
+{% endblock content %}

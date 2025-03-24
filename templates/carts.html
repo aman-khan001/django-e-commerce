@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <section class="cart">
+        <div class="cart-header text-dark text-center">
+            <p>{{ request.path }}</p>
+            <h1>My Wish List</h1>
+        </div>
+
+
+        {% for cart in carts %}
+            
+        <div class="row my-2 mx-5 rounded-3 p-3 border border-success border-2">
+
+            <div class="col-md-8 my-2">
+                <div class="cart-item d-flex gap-3">
+                    <img src="/media/{{cart.product.image}}" class="cart-img rounded img-fluid" alt="">
+                    <div class="cart-info">
+                        <h5>{{cart.product.product_name}}</h5>
+                        <p>${{ cart.product.discounted_price}}</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 quantity-controler d-flex justify-content-center align-items-center gap-4">
+                <button class="btn-sm btn btn-secondary minus">-</button>
+                <input type="number" min="1" value="1" class="form-control w-25">
+                <button class="btn-sm btn btn-secondary plus">+</button>
+                <p class="mt-3">$20.00</p>
+                <button class="btn-sm btn btn-danger"><i class="fa-solid fa-rectangle-xmark"></i></button>
+            </div>
+        </div>
+        {% endfor %}
+
+
+        <div class="cart-summary text-dark p-5 m-5 bg-light rounded-4">
+            <h4 class="text-center">Summary</h4>
+            <p>Total items: <span class="text-success fw-bold">2</span></p>
+            <p>Total price: <span class="text-success fw-bold">${{total}}</span></p>
+            <button class="btn-success btn w-100">Checkout</button>
+        </div>
+
+    </section>
+
+{% endblock content %}
